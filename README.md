@@ -8,11 +8,12 @@
    ```bash
    cp /keybase/team/epfl_idevfsd/meteor-account-entra-app/ENTRA-AUTH-INFO.local-dev .env
    ```
-3. Run
+3. As a 👉👈 temporary hack, copy the `.env` values into lines 6–8 of `server/entraAuth.js`
+4. Run
    ```bash
    meteor npm i
    ```
-4. Arrange for your requests to https://phd-assess-local-dev.epfl.ch (on port 443) to land at http://phd-assess-local-dev.epfl.ch:3000 (unencrypted) instead. This can be done using the [redirector plug-in](https://addons.mozilla.org/en-US/firefox/addon/redirector/) (in which case, you can import `devsupport/redirector-config.json`); or a custom nginx rig (left as an exercise to the reader).
+5. Arrange for your requests to https://phd-assess-local-dev.epfl.ch (on port 443) to land at http://phd-assess-local-dev.epfl.ch:3000 (unencrypted) instead. This can be done using the [redirector plug-in](https://addons.mozilla.org/en-US/firefox/addon/redirector/) (in which case, you can import `devsupport/redirector-config.json`); or a custom nginx rig (left as an exercise to the reader).
 
 # Running
 
