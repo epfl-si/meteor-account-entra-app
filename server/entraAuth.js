@@ -20,12 +20,13 @@ export const setEntraAuthConfig = () => {
     }
   );
 
-  // debug
+  // For debugging only — Can be removed.
 
   Accounts.onExternalLogin( (options, user) => {
       console.log("Called external login!!!")
       console.log(`${ options }`)
       console.log(`${ user }`)
+      return options
     }
   )
 
