@@ -3,9 +3,20 @@ import { Accounts } from 'meteor/accounts-base'
 
 export const setEntraAuthConfig = () => {
   // Validate the env values
-  const tenantId = ""
-  const clientId = ""
-  const secret = ""
+  const tenantId = process.env.AUTH_ENTRA_TENANT_ID
+  const clientId = process.env.AUTH_ENTRA_CLIENT_ID
+  const secret = process.env.AUTH_ENTRA_SECRET
+
+  if ( !(
+    clientId && secret && tenantId
+  )) {
+    throw Error(`
+      Missing env vars:
+        AUTH_ENTRA_TENANT_ID 
+        AUTH_ENTRA_CLIENT_ID or
+        AUTH_ENTRA_SECRET or
+      `)
+  }
 
   // set the entra config
   ServiceConfiguration.configurations.upsert(
@@ -15,7 +26,7 @@ export const setEntraAuthConfig = () => {
         tenantId: tenantId,
         clientId: clientId,
         secret: secret,
-        loginStyle: 'redirect' // 'popup',  // 'redirect'
+        loginStyle: 'redirect',  // 'popup'
       },
     }
   );
