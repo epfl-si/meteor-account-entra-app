@@ -52,6 +52,11 @@ if (Meteor.isClient) {
       });
     }
 
+    // TODO: this doesn't work, because oauth/oauth_client.js
+    // navigates away before the callback has a chance of running. The
+    // goal of the game is to call it ourselves, upon seeing that the
+    // Meteor initialization sequence is actually back from Entra with
+    // credentials.
     Entra.requestCredential(options, credentialRequestCompleteCallback);
   };
 
