@@ -32,6 +32,18 @@ export const setEntraAuthConfig = () => {
 
 }
 
-Meteor.publish("user", function () {
-  return Meteor.users.find();
+Meteor.publish(null, function () {
+  if (!this.userId) return this.ready();
+
+  return Meteor.users.find(
+    { _id: this.userId },
+    {
+      fields: {
+        'services.entra.displayName': 1,
+        'services.entra.givenName': 1,
+        'services.entra.surname': 1,
+        'services.entra.userPrincipalName': 1,
+      }
+    }
+  )
 });
