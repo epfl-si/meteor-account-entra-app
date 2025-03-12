@@ -1,6 +1,4 @@
 import React from 'react';
-import { Hello } from './Hello.jsx';
-import { Info } from './Info.jsx';
 import { Meteor } from 'meteor/meteor'
 import { Accounts } from 'meteor/accounts-base'
 import { useTracker } from 'meteor/react-meteor-data';
@@ -12,32 +10,7 @@ export const App = () => {
   if (!loginServiceConfigured) return <>Loading auth info...</>
 
   return <>
-    <div>Meteor user : { JSON.stringify( user ) }</div>
     { !user ? <>
-        {/*<a*/}
-        {/*  href={''}*/}
-        {/*  onClick={*/}
-        {/*    async () => {*/}
-        {/*      try {*/}
-        {/*        await Meteor.loginWithEntra(*/}
-        {/*          options = {},*/}
-        {/*          callback = (error) => {*/}
-        {/*            debugger;*/}
-        {/*            if (error) {*/}
-        {/*              alert(`Sigin failed: ${ JSON.stringify(error) }`);*/}
-        {/*            } else {*/}
-        {/*              alert('Sigin!');*/}
-        {/*            }*/}
-        {/*          },*/}
-        {/*        );*/}
-        {/*      } catch (e) {*/}
-        {/*        debugger;*/}
-        {/*        alert("error:");*/}
-        {/*        alert(JSON.stringify(e.message));*/}
-        {/*      }*/}
-        {/*    }*/}
-        {/*  }*/}
-        {/*>Login Entra</a><br/>*/}
         <a
           href={''}
           onClick={
@@ -65,9 +38,19 @@ export const App = () => {
         >Signin Entra</a>
       </> :
       <div>
-        <h1>Welcome to Meteor!</h1>
-        <Hello/>
-        <Info/>
+        <h1>Logged in !</h1>
+        <div>Meteor user : { JSON.stringify( user ) }</div>
+        <div>
+          <a
+            href={''}
+            onClick={
+              async (e) => {
+                e.preventDefault();
+                Meteor.logout()
+              }
+            }
+          >Logout</a>
+        </div>
       </div>
     }
   </>
