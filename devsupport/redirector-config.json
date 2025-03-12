@@ -1,0 +1,23 @@
+{
+    "createdBy": "Redirector v3.5.3",
+    "createdAt": "2025-03-12T10:45:06.889Z",
+    "redirects": [
+        {
+            "description": "meteor-account-entra-app",
+            "exampleUrl": "https://phd-assess-local-dev.epfl.ch/tototutu",
+            "exampleResult": "http://phd-assess-local-dev.epfl.ch:3000/tototutu",
+            "error": null,
+            "includePattern": "https://phd-assess-local-dev.epfl.ch/(.*)",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "http://phd-assess-local-dev.epfl.ch:3000/$1",
+            "patternType": "R",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "grouped": false,
+            "appliesTo": [
+                "main_frame"
+            ]
+        }
+    ]
+}

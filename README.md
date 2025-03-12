@@ -12,7 +12,7 @@
    ```bash
    meteor npm i
    ```
-4. Arrange for your requests to https://phd-assess-local-dev.epfl.ch (on port 443) to land at http://phd-assess-local-dev.epfl.ch:3000 (unencrypted) instead. This can be done using the [redirector plug-in](https://addons.mozilla.org/en-US/firefox/addon/redirector/) or a custom nginx rig (left as an exercise to the reader).
+4. Arrange for your requests to https://phd-assess-local-dev.epfl.ch (on port 443) to land at http://phd-assess-local-dev.epfl.ch:3000 (unencrypted) instead. This can be done using the [redirector plug-in](https://addons.mozilla.org/en-US/firefox/addon/redirector/) (in which case, you can import `devsupport/redirector-config.json`); or a custom nginx rig (left as an exercise to the reader).
 
 # Running
 
