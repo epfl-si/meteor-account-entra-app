@@ -1,6 +1,5 @@
 # Install
 
-?? service-configuration ??
 meteor add epfl-si:entra-oauth
 meteor add epfl-si:accounts-entra
 
@@ -33,70 +32,14 @@ export const setEntraAuthConfig = () => {
     { service: "entra" },
     {
       $set: {
-        getTokenBaseURL: "https://login.microsoftonline.com",
-        getTokenAfterTenantURL: "oauth2/v2.0/token",
-
-        refreshTokenBaseURL: "https://login.microsoftonline.com",
-        refreshTokenAfterTenantURL: "oauth2/v2.0/token",
-
-        loginBaseURL: "https://login.microsoftonline.com",
-        loginAfterTenantURL: "oauth2/v2.0/authorize",
-
         clientId: clientId,
         secret: secret,
         tenantId: tenantId,
-        loginStyle: 'popup', //'redirect',
+        loginStyle: 'redirect', // 'popup',
       },
     }
   );
 }
-```
-
-# For React
-Be reactive (aka add usable component):
-```
-/**
- * Provide a reactive context for user info
- */
-import {Meteor} from "meteor/meteor";
-import { Accounts } from 'meteor/accounts-base';
-import React, {useContext} from 'react'
-import {createContext} from "react";
-import {useTracker} from 'meteor/react-meteor-data'
-
-interface AccountContextInterface {
-  user: Meteor.User | null;
-  userId: string | null;
-  isLoggedIn: boolean;
-  loginServiceConfigured: boolean;
-}
-
-const useAccount = () => useTracker(() => {
-  const user = Meteor.user()
-  const userId = Meteor.userId()
-  const loginServiceConfigured = Accounts.loginServicesConfigured()
-  return {
-    user,
-    userId,
-    isLoggedIn: !!userId,
-    loginServiceConfigured: loginServiceConfigured
-  }
-}, [])
-
-export const AccountContext = createContext<AccountContextInterface | null>(null)
-
-export const AccountProvider = (props: any) => (
-  <AccountContext.Provider value={useAccount()}>
-    {props.children}
-  </AccountContext.Provider>
-)
-
-export const useAccountContext = () => useContext(AccountContext)
-```
-With, as blocker any login before this :
-```
-const account = useAccountContext()
-if (!account.userId() && !account?.loginServiceConfigured) return <>Loading auth info...</>
 ```
 
 # UI
@@ -121,8 +64,3 @@ Add this:
       }
     >Login Entra</a>
 ```
-
-# For dev
-
-Add your ROOT_URL in your current env. Should be a https, as Entra force it.
-That's why I added a nginx conf locally to redirect https to http.

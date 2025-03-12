@@ -1,7 +1,6 @@
 # Things to better know
 
-- Entra only allows http as Redirect URIs URL. Better put a https to http proxy in front of your Meteor app.
-    - ROOT_URL should be set with https, without the port
+- Entra only allows http as Redirect URIs URL. Better put a way to redirect https to http in front of your Meteor app.
 
 # References
 - https://login.microsoftonline.com/ + TenantId + /v2.0/.well-known/openid-configuration
