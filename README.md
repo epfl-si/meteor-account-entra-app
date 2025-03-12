@@ -20,7 +20,7 @@
 1. Either run this from the terminal, or have your IDE do something similar:
    ```
    export ROOT_URL=https://phd-assess-local-dev.epfl.ch
-   meteor
+   meteor --settings settings-dev.json
    ```
 2. Browse http://phd-assess-local-dev.epfl.ch:3000
 

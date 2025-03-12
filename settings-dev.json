@@ -1,0 +1,7 @@
+{
+  "packages": {
+    "oauth": {
+      "disableCheckRedirectUrlOrigin": true
+    }
+  }
+}
