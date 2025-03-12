@@ -41,7 +41,8 @@ export const App = () => {
         <a
           href={''}
           onClick={
-            async () => {
+            async (e) => {
+              e.preventDefault();
               try {
                 await Meteor.entraSignIn(
                   options = {},
