@@ -23,5 +23,5 @@ react-meteor-data       # React higher-order component for reactively tracking M
 dev-error-overlay
 service-configuration
 
-epfl-si:entra-oauth
-epfl-si:accounts-entra
+epfl:entra-oauth
+epfl:accounts-entra
