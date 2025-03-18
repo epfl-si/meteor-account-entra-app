@@ -1,5 +1,5 @@
 import { ServiceConfiguration } from "meteor/service-configuration";
-import { Accounts } from 'meteor/accounts-base'
+
 
 export const setEntraAuthConfig = () => {
   // Validate the env values
@@ -27,6 +27,7 @@ export const setEntraAuthConfig = () => {
         clientId: clientId,
         secret: secret,
         loginStyle: 'redirect',  // 'popup'
+        // fields: []  // if you want to get specific fields
       },
     }
   );
